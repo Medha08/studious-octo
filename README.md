@@ -2,12 +2,14 @@
 
 LinkedList EVM Package
 
-After all installations(Ganache,zos(I installed locally),truffle v5)
+Including all installations(Ganache,zos(I installed locally),truffle v5)
 
-`
-  npm init
-  npx zos init LinkedList (to track the details of your ZeppelinOS project & initialize truffle project) 
-`
+```
+  >npm init
+  >npm install zos (to install zepplin OS)
+  >npx zos init LinkedList (to track the details of your ZeppelinOS project & initialize truffle project) 
+  >npm install truffle@5.0.4 
+```
 
 # Files after the above steps
 
