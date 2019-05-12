@@ -77,14 +77,14 @@ We need to add the contract to Zeppelin OS Project
 
 ### Testing
 
-      1. `myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000' `
+      1. myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000' 
           There is no head yet, so this is the expected output
-      2. `myLinkedList.addNode("Hello World!") `
+      2. myLinkedList.addNode("Hello World!") 
           This should return a transaction object and logs and see reflected transaction in ganache
-      3. `myLinkedList.head()`
-          Our new head's byte32 id ie the location of head node (we can get the node by nodes mapping by passing the id argument of that node)
-      4. `myLinkedList.nodes('< above id >')`
+      3. myLinkedList.head()
+          Our new head's byte32 id ie the location of head node (we can get the node by nodes mapping by passing the id                 argument of that node)
+      4. myLinkedList.nodes('< above id >')
           This returns the struct node in form of array of node values(next and data),next will be 0x00..
-      5. `myLinkedList.popNode()`
+      5. myLinkedList.popNode()
           This pops off the head from list and returns the transaction
-      6.  `myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000' `
+      6.  myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000' 
