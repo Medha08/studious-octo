@@ -69,3 +69,22 @@ We need to add the contract to Zeppelin OS Project
 9. zos.dev-<<some number here>>.json has “proxies” near the bottom of the file,this is where ZeppelinOS keeps track of your contract deployments on this particular network
 10. The address refers to the location of the proxy of your contract, version is the version of our instance, and implementation points to the logic contract our contract calls will be proxied to.
 11. The address entry will be the address that you will use when you want to connect to your contract (via the proxy) for something like testing or via web3 in a dApp
+
+## Testing and Publishing
+
+1. Directly test the network in truffle console `npx truffle console --network local`
+2. Create an instance of contract `<your-contract-address>')`
+
+### Testing
+
+      1. `myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000' `
+          There is no head yet, so this is the expected output
+      2. `myLinkedList.addNode("Hello World!") `
+          This should return a transaction object and logs and see reflected transaction in ganache
+      3. `myLinkedList.head()`
+          Our new head's byte32 id ie the location of head node (we can get the node by nodes mapping by passing the id argument of that node)
+      4. `myLinkedList.nodes('< above id >')`
+          This returns the struct node in form of array of node values(next and data),next will be 0x00..
+      5. `myLinkedList.popNode()`
+          This pops off the head from list and returns the transaction
+      6.  `myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000' `
