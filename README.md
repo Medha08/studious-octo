@@ -74,12 +74,13 @@ We need to add the contract to Zeppelin OS Project
 
 1. Directly test the network in truffle console `npx truffle console --network local`
 2. Create an instance of contract `<your-contract-address>')`
+3. A new zos.dev-<<some number here>>.json file is formed whenever you redeploy and push to a local chain but as it is deterministic values will remain same(contract address of logic contract and proxy contract)
 
 ### Testing
 
-      1. myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000' 
+      1. myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000'
           There is no head yet, so this is the expected output
-      2. myLinkedList.addNode("Hello World!") 
+      2. myLinkedList.addNode("Hello World!")
           This should return a transaction object and logs and see reflected transaction in ganache
       3. myLinkedList.head()
           Our new head's byte32 id ie the location of head node (we can get the node by nodes mapping by passing the id                 argument of that node)
@@ -87,4 +88,34 @@ We need to add the contract to Zeppelin OS Project
           This returns the struct node in form of array of node values(next and data),next will be 0x00..
       5. myLinkedList.popNode()
           This pops off the head from list and returns the transaction
-      6.  myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000' 
+      6.  myLinkedList.head() -> '0x0000000000000000000000000000000000000000000000000000000000000000'
+
+### Publishing to local development Blockchain
+
+      1. Publishing your project takes the code you’ve written, packages it up, and publishes it to the network of your choosing where others can easily reuse it
+      2. As we created an instance of project while testing publishing code on network will too allow others to create instance of our contract and reuse the code in their own projects.
+      3. Before publishing to public network let's first publish to our local development blockchain(ganache)
+      4. `npx zos publish --network local`
+      5. In  zos.dev-<<some number here>>.json file,we now have an app, package, and provider fields with addresses     pointing to their respective contracts.
+      6. Deployed to local dev blockchain
+
+### Publishing to Rinkeby
+
+      1. Start a new zos session with rinkeby network and the metamask mnemonic
+      2. Get the metamask's mnemonic ie the 12 seed words used while creating the account, a 12-word “secret phrase” that can be used to regenerate your entire wallet at any time in the future
+      2. Get some test ethers from faucet
+      3. Once we have metamask account funded and 12 words secret phrase copied we need to create an account (and address) with MetaMask that you’ll use as your “deployment address” as per the transparent proxy issue mentioned earlier
+      4. `npx zos session --network rinkeby --from <address metamask 1>`
+      5. `npx zos add LinkedList`
+      6. ` npx zos push`
+      7. npx zos publish --network rinkeby --from <address metamask 1>`
+
+#### Setup
+
+    1. If you open your truffle-config.js file, you will see that there is only your development blockchain under  “local.” You will need to add the network you wish to deploy to
+    2. Add truffle-hd-wallet to the project and config changes in truffle-config.js to support deployment on mainnet as well as rinkeby network. `npm install truffle-hdwallet-provider`
+    3. HDWalletProvider gives you a JavaScript object that will behave like an Ethereum wallet connected to a network.
+    4. It acts as a web3 provider, but it intercepts your transactions to sign them locally with the key derived from the mnemonic we entered.
+    5. This way, we don’t need to have your keys on your node and can just send the transaction to a public node.
+    6. In this case, we will use Infura, a free service that acts as a gateway to the main Ethereum network,we will need an API token to connect, and can get that here by signing up.
+    7. Push project in mainnet/rinkeby before publishing  `npx zos push --network mainnet --from <<your from address>>`

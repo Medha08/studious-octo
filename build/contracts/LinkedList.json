@@ -4376,10 +4376,16 @@
       "events": {},
       "address": "0xCfEB869F69431e42cdB54A4F4f105C19C080A601",
       "updated_at": 1557580948275
+    },
+    "1557752857712": {
+      "links": {},
+      "events": {},
+      "address": "0xCfEB869F69431e42cdB54A4F4f105C19C080A601",
+      "updated_at": 1557753768875
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-05-11T13:11:20.413Z",
+  "updatedAt": "2019-05-14T18:15:37.905Z",
   "devdoc": {
     "methods": {}
   },

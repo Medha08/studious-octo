@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "truffle": "^5.0.1",
+    "truffle-hdwallet-provider": "^1.0.9",
     "zos": "^2.2.3",
     "zos-lib": "^2.2.3"
   },
