@@ -10,6 +10,12 @@
     "zos": "^2.2.3",
     "zos-lib": "^2.2.3"
   },
+  "keywords": [
+    "Solidity",
+    "ethereum",
+    "linked",
+    "list"
+  ],
   "files": [
     "build",
     "contracts",
