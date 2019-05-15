@@ -1,5 +1,5 @@
 {
-  "name": "linkedlist",
+  "name": "evm_package_linkedlist",
   "version": "1.1.0",
   "description": "LinkedList EVM Package",
   "dependencies": {
