@@ -1,14 +1,22 @@
 {
-  "name": "evm_package_linkedlist",
+  "name": "linkedlist",
   "version": "1.0.0",
   "description": "LinkedList EVM Package",
-  "main": "index.js",
   "dependencies": {
+    "evm_package_linkedlist": "^1.0.0",
+    "link": "^0.1.5",
     "truffle": "^5.0.1",
     "truffle-hdwallet-provider": "^1.0.9",
     "zos": "^2.2.3",
     "zos-lib": "^2.2.3"
   },
+  "files": [
+    "build",
+    "contracts",
+    "test",
+    "zos.json",
+    "zos.*.json"
+  ],
   "devDependencies": {},
   "scripts": {
     "test": "mocha"

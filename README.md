@@ -119,3 +119,15 @@ We need to add the contract to Zeppelin OS Project
     5. This way, we don’t need to have your keys on your node and can just send the transaction to a public node.
     6. In this case, we will use Infura, a free service that acts as a gateway to the main Ethereum network,we will need an API token to connect, and can get that here by signing up.
     7. Push project in mainnet/rinkeby before publishing  `npx zos push --network mainnet --from <<your from address>>`
+    8. After deployment to rinkeby a new zos.rinkeby.json is formed.
+
+## Making it an NPM Package
+
+1. The final step is to add your EVM package to the NPM repository so others can easily find your package and install your code via `npm install`.
+2. NPM package should include 1. the source code 2. Compiled contracts 3. The ZeppelinOS configuration files.
+3. The ZeppelinOS configuration files keep track of your contracts and the addresses where you have published them
+4. This way, when someone installs your NPM package, ZeppelinOS already knows where the on-chain code is deployed and can link their project to your on-chain code.(They will still need to deploy their own instance of the code via the proxy system)
+5. `npm login`
+6. `npm publish`
+7. `npx zos link <<your-project-name>>`
+8. `npm install link evm_package_linkedlist`
